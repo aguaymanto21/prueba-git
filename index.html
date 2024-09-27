@@ -1,30 +1,217 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Simple</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Personal Portafolio Gustavo Salazar | Code</title>
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header>
-        <h1>CAMBIOSSSS</h1>
+
+    <!-- header design -->
+    <header class="header">
+        <a href="#" class="logo">Portafolio.</a>
+
+        <div class='bx bx-menu' id="menu-icon"></div>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Inicio</a>
+            <a href="#about">Proyectos</a>
+            <a href="#services">Software</a>
+            <a href="#portfolio">Idiomas</a>
+            <a href="#contact">Contacto</a>
+        </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Acerca de mí</h2>
-            <p>Soy un desarrollador apasionado por la tecnología y el código.</p>
-        </section>
+    <!-- home section design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hola, yo soy</h3>
+            <h1>Gustavo Salazar</h1>
+            <h3><span class="multiple-text"></span></h3>
+            <p>CIP:245345</p>
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <a href="#" class="btn">Descargar CV</a>
+        </div>
 
-        <section>
-            <h2>Mis Proyectos</h2>
-            <p>He trabajado en varios proyectos interesantes de desarrollo web.</p>
-        </section>
-    </main>
+        <div class="home-img">
+            <img src="images/home.png" alt="">
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2024 Mi Página. Todos los derechos reservados.</p>
+    <!-- about section design -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="images/Captura.JPG" alt="">
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading">Sobre <span>mí</span></h2>
+            <h3>Ingeniero <span> mecatrónico</span> </h3>
+            <p>Ingeniero Titulado de la
+                Universidad Cátolica de Santa María he trabajado en gran mineria
+                y en proyectos en el sur del Perú. Tengo dominio en mantenimiento y diseños de tablero electricos y PLCs con AUTOCAD, EPLAN
+        mantenimiento y calibración de sensores dominio en KPIS de mantenimiento usando SQL,POWER BI AVANZADO con EXCELL MACROS
+        en el caso mecánico soy experto en diseños explosivos y planos en SOLIDWORKS tengo una experiencia de dos años.</p>
+            <a href="#" class="btn">Leer mas</a>
+        </div>
+    </section>
+
+    <!-- services section design -->
+    <section class="services" id="services">
+        <h2 class="heading">Mis <span>Habilidades</span></h2>
+
+        <div class="services-container">
+            <div class="services-box">
+                <i class='bx bx-code-alt'></i>
+                <h3>Programacion</h3>
+                <p>Full Stack developer experto en base de datos relacionales SQL(server,Workbench) manejo actualmente los idiomas Javascrypt
+                    (Python,Reaact,Typewritter) tambien analizo datos usando Inteligencia artificial(Machine learning,Deep Learning)
+                    y Finalmente hago reportes en Excell (MACROS VBA,Power Bi).
+                </p>
+                <a href="#" class="btn">Leer mas</a>
+            </div>
+
+            <div class="services-box">
+                <i class='bx bxs-paint'></i>
+                <h3>Electricidad e Instrumentación</h3>
+                <p>Supervisión de construcción y levantamiento de malla a
+                    Construcción, levantamiento de banco ductos asi como el
+                    Construcción y levantamiento de postes de luz asi como
+                    tierra, pozos a tierra, protocolos de calidad con pruebas
+                    de inspección y medición.
+                    cableado de fuerza e instrumentación
+                    instalacion.</p>
+                <a href="#" class="btn">Leer más</a>
+            </div>
+
+            <div class="services-box">
+                <i class='bx bx-bar-chart-alt'></i>
+                <h3>Mantenimiento mecánico</h3>
+                <p>Creación de avisos de órdenes de mantenimiento,
+                    generación de reservas, notificaciones y mantenimiento
+                    preventivo, cierres técnicos para flota auxiliar.
+                    Apoyo en mantenimientos preventivos de 250, 500,1000 y
+                    2000 horas de flota auxiliar taller tractores creación de
+                    registro de trabajos diarios, gestión de control de
+                    backlogs.</p>
+                <a href="#" class="btn">Leer mas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- portfolio section design -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Mis <span>Proyectos</span></h2>
+
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="images/portfolio1.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Diseño Mecanico</h4>
+                    <p>Proyectos hechos en Inventor,Solidworks y planos explosivos diseñados para clientes en gran Mineria.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/portfolio2.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Electricidad e Instrumentación</h4>
+                    <p>Diseño y lectura de planos electricos en baja y media tensión codigo nacional de electricidad</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/portfolio3.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Power Bi</h4>
+                    <p>Análisis de datos e ingeniería de datos usando Power Bi machine learning y deep learning</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/portfolio4.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Machine learning e Inteligencia Artificial</h4>
+                    <p>Predicción de datos y análisis por redes neuronales usando inteligencia a rtificial para mienria</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/portfolio5.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>MySQL</h4>
+                    <p>Utilización de base de datos para consultas y el análisis de datos para la toma de desiciones de la empresa a la cual estoy trabajando</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="images/portfolio6.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Aplicaciones en mineria</h4>
+                    <p>Innovacion en el area de mantenimiento usando tecnologia a la vanguardia.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contáctame <span>!</span></h2>
+
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Nombre Apellidos">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Celular">
+                <input type="text" placeholder="Motivo">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Tu mensaje"></textarea>
+            <input type="submit" value="Enviar Mensaje" class="btn">
+        </form>
+    </section>
+
+    <!-- footer design -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by Gustavo Salazar | Derechos reservados.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
     </footer>
+
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- typed js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- custom js -->
+    <script src="js/script.js"></script>
 </body>
+
 </html>

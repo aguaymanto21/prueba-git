@@ -177,7 +177,7 @@ span {
 .about-img img {
     width: 40vw;
     margin-right: 5vw;
-    
+
 }
 
 .heading {
@@ -516,4 +516,65 @@ span {
     .about-img img {
         width: 90vw;
     }
+}
+
+.expand-btn {
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Estilo del botón cuando se expande */
+.expand-btn.expanded {
+  background-color: #5a5aff; /* Cambia el color de fondo */
+  color: white
+}
+
+/* Estilos para la expansión del texto en 'Sobre mí' */
+.about-content .text-container {
+  max-height: 150px; /* Altura inicial para mostrar parte del texto */
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.about-content .text-container.expanded {
+  max-height: 1000px; /* Altura suficiente para mostrar todo el texto */
+}
+
+.read-more-btn {
+  margin-top: 15px;
+  background: #5a5aff;
+  color: #fff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #4040ff;
+}
+
+/* Estilos para la expansión del texto en 'Sobre mí' */
+.about-content .text-container {
+  max-height: 250px; /* Ajusta este valor para controlar cuánto texto se muestra inicialmente */
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.about-content .text-container.expanded {
+  max-height: 1000px; /* Debe ser lo suficientemente grande para mostrar todo el texto */
+}
+
+.expand-btn {
+margin-top: 25px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.expand-btn:hover {
+  background: #4040ff;
 }

@@ -12,6 +12,7 @@
 
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css"> <!-- Enlace al archivo CSS específico de la sección 'Sobre mí' -->
 </head>
 
 <body>
@@ -54,121 +55,183 @@
 
     <!-- Sección Sobre mí -->
     <section class="about" id="about">
-        <div class="about-img">
-            <img src="images/Captura.JPG" alt="Foto de Gustavo Salazar">
+        <div class="about-left">
+            <div class="cards-container">
+                <!-- Card 1 -->
+                <article>
+                    <figure>
+                        <img src="images/c1.png" alt="Descripción de la imagen 1">
+                        <a href="#" class="read-more">
+                            Leer más <span class="sr-only">sobre Título de la Card 1</span>
+                        </a>
+                    </figure>
+                </article>
+                <!-- Card 2 -->
+                <article>
+                    <figure>
+                        <img src="images/c2.png" alt="Descripción de la imagen 2">
+                        <a href="#" class="read-more">
+                            Leer más <span class="sr-only">sobre Título de la Card 2</span>
+                        </a>
+                    </figure>
+                </article>
+                <!-- Card 3 -->
+                <article>
+                    <figure>
+                        <img src="images/c3.png" alt="Descripción de la imagen 3">
+                        <a href="#" class="read-more">
+                            Leer más <span class="sr-only">sobre Título de la Card 3</span>
+                        </a>
+                    </figure>
+                </article>
+                <!-- Card 4 -->
+                <article>
+                    <figure>
+                        <img src="images/c4.jpg" alt="Descripción de la imagen 4">
+                        <a href="#" class="read-more">
+                            Leer más <span class="sr-only">sobre Título de la Card 4</span>
+                        </a>
+                    </figure>
+                </article>
+                <!-- Card 5 -->
+                <article>
+                    <figure>
+                        <img src="images/c5.png" alt="Descripción de la imagen 5">
+                        <a href="#" class="read-more">
+                            Leer más <span class="sr-only">sobre Título de la Card 5</span>
+                        </a>
+                    </figure>
+                </article>
+                <!-- Card 6 -->
+                <article>
+                    <figure>
+                        <img src="images/c6.JPG" alt="Descripción de la imagen 6">
+                        <a href="#" class="read-more">
+                            Leer más <span class="sr-only">sobre Título de la Card 6</span>
+                        </a>
+                    </figure>
+                </article>
+            </div>
         </div>
 
-        <div class="about-content">
-            <h2 class="heading">Sobre <span>mí</span></h2>
-            <h3>Ingeniero <span>Mecatrónico</span></h3>
-            <div class="text-container">
-                <p>Ingeniero Mecatrónico titulado por la Universidad Católica de Santa María, con experiencia en grandes proyectos mineros en el sur del Perú.</p>
-                <p>Poseo amplio dominio en mantenimiento y diseño de tableros eléctricos y PLCs utilizando herramientas como <span class="software-name">AUTOCAD</span> y <span class="software-name">EPLAN</span>. Además, tengo experiencia en mantenimiento y calibración de sensores, y en la gestión de KPIs de mantenimiento mediante <span class="software-name">SQL</span> y avanzadas habilidades en <span class="software-name">POWER BI</span> y macros de <span class="software-name">EXCEL</span>.</p>
-                <p>En el ámbito mecánico, soy experto en el diseño de ensamblajes y planos detallados utilizando <span class="software-name">SOLIDWORKS</span>, contando con dos años de experiencia en este campo.
-                </p>
+        <div class="about-right">
+            <div class="about-content">
+                <h2 class="heading">Sobre <span>mí</span></h2>
+                <h3>Ingeniero <span>Mecatrónico</span></h3>
+                <div class="text-container">
+                    <p>Ingeniero Mecatrónico titulado por la Universidad Católica de Santa María, con experiencia en grandes proyectos mineros en el sur del Perú.</p>
+                    <p>Poseo amplio dominio en mantenimiento y diseño de tableros eléctricos y PLCs utilizando herramientas como <span class="software-name">AUTOCAD</span> y <span class="software-name">EPLAN</span>. Además, tengo experiencia en mantenimiento y calibración de sensores, y en la gestión de KPIs de mantenimiento mediante <span class="software-name">SQL</span> y avanzadas habilidades en <span class="software-name">POWER BI</span> y macros de <span class="software-name">EXCEL</span>.</p>
+                    <p>En el ámbito mecánico, soy experto en el diseño de ensamblajes y planos detallados utilizando <span class="software-name">SOLIDWORKS</span>, contando con dos años de experiencia en este campo.
+                    </p>
+                </div>
+                <button class="btn expand-btn">Leer más</button>
             </div>
-            <button class="btn expand-btn">Leer más</button>
         </div>
     </section>
 
+ <!-- Sección Habilidades -->
+ <section class="services" id="services">
+  <h2 class="heading">Mis <span>Habilidades</span></h2>
 
-    <!-- services section design -->
-    <section class="services" id="services">
-      <h2 class="heading">Mis <span>Habilidades</span></h2>
+  <div class="services-container">
+      <!-- Habilidad 1 -->
+      <div class="services-box programacion">
+          <i class='bx bx-code-alt'></i>
+          <h3>Programación</h3>
+          <p>
+              Full Stack developer con experiencia en <span class="highlight">SQL Server</span>, <span class="highlight">Workbench</span> y lenguajes como <span class="highlight">JavaScript</span>, <span class="highlight">Python</span>, <span class="highlight">React</span> y <span class="highlight">TypeScript</span>. Experto en análisis de datos con <span class="highlight">Machine Learning</span> y <span class="highlight">Deep Learning</span>, además de generación de reportes en <span class="highlight">Excel</span> (MACROS VBA).
+          </p>
+          <a href="#" class="btn">Ir a página</a>
+      </div>
 
-      <div class="services-container">
-          <div class="services-box programacion">
-              <i class='bx bx-code-alt'></i>
-              <h3>Programacion</h3>
-              <p>
-                Full Stack developer con experiencia en <span class="highlight">SQL Server</span>, <span class="highlight">Workbench</span> y lenguajes como <span class="highlight">JavaScript</span>, <span class="highlight">Python</span>, <span class="highlight">React</span> y <span class="highlight">TypeScript</span>. Experto en análisis de datos con <span class="highlight">Machine Learning</span> y <span class="highlight">Deep Learning</span>, además de generación de reportes en <span class="highlight">Excel</span> (MACROS VBA).
-              </p>
+      <!-- Habilidad 2 -->
+      <div class="services-box electricidad">
+          <i class='bx bxs-plug'></i>
+          <h3>Electricidad e Instrumentación</h3>
+          <p>
+              Supervisión de <span class="highlight">construcción</span> y <span class="highlight">levantamiento de malla</span>, así como <span class="highlight">levantamiento de banco ductos</span> y <span class="highlight">construcción de postes de luz</span>. Implementación de protocolos de calidad con pruebas de inspección y medición. Instalación de <span class="highlight">cableado de fuerza</span> e <span class="highlight">instrumentación</span>.
+          </p>
+          <a href="#" class="btn">Ir a página</a>
+      </div>
 
-              <a href="#" class="btn">Ir a pagina</a>
-          </div>
+      <!-- Habilidad 3 -->
+      <div class="services-box mecanico">
+          <i class='bx bx-cog'></i>
+          <h3>Mantenimiento Mecánico</h3>
+          <p>
+              <span class="highlight">Creación de avisos</span> y <span class="highlight">órdenes de mantenimiento</span>, <span class="highlight">generación de reservas</span>, <span class="highlight">notificaciones</span> y <span class="highlight">mantenimiento preventivo</span> para flota auxiliar. Apoyo en mantenimientos preventivos de 250, 500, 1000 y 2000 horas, <span class="highlight">registro de trabajos diarios</span> y <span class="highlight">gestión de control de backlogs</span>.
+          </p>
+          <a href="#" class="btn">Ir a página</a>
+      </div>
+  </div>
+</section>
 
-          <div class="services-box electricidad">
-              <i class='bx bxs-paint'></i>
-              <h3>Electricidad e Instrumentación</h3>
-              <p>
-                Supervisión de <span class="highlight">construcción</span> y <span class="highlight">levantamiento de malla</span>, así como <span class="highlight">levantamiento de banco ductos</span> y <span class="highlight">construcción de postes de luz</span>. Implementación de protocolos de calidad con pruebas de inspección y medición. Instalación de <span class="highlight">cableado de fuerza</span> e <span class="highlight">instrumentación</span>.
-              </p>
+<!-- Sección Proyectos -->
+<section class="portfolio" id="portfolio">
+  <h2 class="heading">Mis <span>Proyectos</span></h2>
 
-              <a href="#" class="btn">Ir a página</a>
-          </div>
-
-          <div class="services-box mecanico ">
-              <i class='bx bx-bar-chart-alt'></i>
-              <h3>Mantenimiento mecánico</h3>
-              <p>
-                <span class="highlight">Creación de avisos</span> y <span class="highlight">órdenes de mantenimiento</span>, <span class="highlight">generación de reservas</span>, <span class="highlight">notificaciones</span> y <span class="highlight">mantenimiento preventivo</span> para flota auxiliar. Apoyo en mantenimientos preventivos de 250, 500, 1000 y 2000 horas, <span class="highlight">registro de trabajos diarios</span> y <span class="highlight">gestión de control de backlogs</span>.
-              </p>
-
-              <a href="#" class="btn">Ir a pagina </a>
+  <div class="portfolio-container">
+      <!-- Proyecto 1 -->
+      <div class="portfolio-box">
+          <img src="images/portfolio1.jpg" alt="Proyecto 1">
+          <div class="portfolio-layer">
+              <h4>Diseño Mecánico</h4>
+              <p>Proyectos hechos en Inventor, Solidworks y planos explosivos diseñados para clientes en gran minería.</p>
+              <a href="#"><i class='bx bx-link-external'></i></a>
           </div>
       </div>
-  </section>
 
-  <!-- portfolio section design -->
-  <section class="portfolio" id="portfolio">
-      <h2 class="heading">Mis <span>Proyectos</span></h2>
-
-      <div class="portfolio-container">
-          <div class="portfolio-box">
-              <img src="images/portfolio1.jpg" alt="">
-              <div class="portfolio-layer">
-                  <h4>Diseño Mecanico</h4>
-                  <p>Proyectos hechos en Inventor,Solidworks y planos explosivos diseñados para clientes en gran Mineria.</p>
-                  <a href="#"><i class='bx bx-link-external'></i></a>
-              </div>
-          </div>
-
-          <div class="portfolio-box">
-              <img src="images/portfolio2.jpg" alt="">
-              <div class="portfolio-layer">
-                  <h4>Electricidad e Instrumentación</h4>
-                  <p>Diseño y lectura de planos electricos en baja y media tensión codigo nacional de electricidad</p>
-                  <a href="#"><i class='bx bx-link-external'></i></a>
-              </div>
-          </div>
-
-          <div class="portfolio-box">
-              <img src="images/portfolio3.jpg" alt="">
-              <div class="portfolio-layer">
-                  <h4>Power Bi</h4>
-                  <p>Análisis de datos e ingeniería de datos usando Power Bi machine learning y deep learning</p>
-                  <a href="#"><i class='bx bx-link-external'></i></a>
-              </div>
-          </div>
-
-          <div class="portfolio-box">
-              <img src="images/portfolio4.jpg" alt="">
-              <div class="portfolio-layer">
-                  <h4>Machine learning e Inteligencia Artificial</h4>
-                  <p>Predicción de datos y análisis por redes neuronales usando inteligencia a rtificial para mienria</p>
-                  <a href="#"><i class='bx bx-link-external'></i></a>
-              </div>
-          </div>
-
-          <div class="portfolio-box">
-              <img src="images/portfolio5.jpg" alt="">
-              <div class="portfolio-layer">
-                  <h4>MySQL</h4>
-                  <p>Utilización de base de datos para consultas y el análisis de datos para la toma de desiciones de la empresa a la cual estoy trabajando</p>
-                  <a href="#"><i class='bx bx-link-external'></i></a>
-              </div>
-          </div>
-
-          <div class="portfolio-box">
-              <img src="images/portfolio6.jpg" alt="">
-              <div class="portfolio-layer">
-                  <h4>Aplicaciones en mineria</h4>
-                  <p>Innovacion en el area de mantenimiento usando tecnologia a la vanguardia.</p>
-                  <a href="#"><i class='bx bx-link-external'></i></a>
-              </div>
+      <!-- Proyecto 2 -->
+      <div class="portfolio-box">
+          <img src="images/portfolio2.jpg" alt="Proyecto 2">
+          <div class="portfolio-layer">
+              <h4>Electricidad e Instrumentación</h4>
+              <p>Diseño y lectura de planos eléctricos en baja y media tensión, código nacional de electricidad.</p>
+              <a href="#"><i class='bx bx-link-external'></i></a>
           </div>
       </div>
-  </section>
+
+      <!-- Proyecto 3 -->
+      <div class="portfolio-box">
+          <img src="images/portfolio3.jpg" alt="Proyecto 3">
+          <div class="portfolio-layer">
+              <h4>Power BI</h4>
+              <p>Análisis de datos e ingeniería de datos usando Power BI, Machine Learning y Deep Learning.</p>
+              <a href="#"><i class='bx bx-link-external'></i></a>
+          </div>
+      </div>
+
+      <!-- Proyecto 4 -->
+      <div class="portfolio-box">
+          <img src="images/portfolio4.jpg" alt="Proyecto 4">
+          <div class="portfolio-layer">
+              <h4>Machine Learning e Inteligencia Artificial</h4>
+              <p>Predicción de datos y análisis por redes neuronales usando inteligencia artificial para minería.</p>
+              <a href="#"><i class='bx bx-link-external'></i></a>
+          </div>
+      </div>
+
+      <!-- Proyecto 5 -->
+      <div class="portfolio-box">
+          <img src="images/portfolio5.jpg" alt="Proyecto 5">
+          <div class="portfolio-layer">
+              <h4>MySQL</h4>
+              <p>Utilización de bases de datos para consultas y análisis de datos para la toma de decisiones de la empresa.</p>
+              <a href="#"><i class='bx bx-link-external'></i></a>
+          </div>
+      </div>
+
+      <!-- Proyecto 6 -->
+      <div class="portfolio-box">
+          <img src="images/portfolio6.jpg" alt="Proyecto 6">
+          <div class="portfolio-layer">
+              <h4>Aplicaciones en Minería</h4>
+              <p>Innovación en el área de mantenimiento usando tecnología de vanguardia.</p>
+              <a href="#"><i class='bx bx-link-external'></i></a>
+          </div>
+      </div>
+  </div>
+</section>
 
     <!-- Sección Contacto -->
     <section class="contact" id="contact">

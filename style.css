@@ -201,7 +201,6 @@ span {
 }
 
 .services {
-    min-height: auto;
     padding-bottom: 10rem;
 }
 
@@ -228,9 +227,9 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto; /* Remueve cualquier restricción de altura */
-  min-height: 500px; /* Asegura que todas las cards tengan al menos esta altura */
-  max-height: 600px; /* Controla la altura máxima */
+  height: auto;
+  min-height: 500px;
+  max-height: 600px;
 }
 
 

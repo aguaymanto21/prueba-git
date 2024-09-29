@@ -210,22 +210,30 @@ span {
 }
 
 .services-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Asegura que todas las cards tengan la misma altura */
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .services-container .services-box {
-    flex: 1 1 30rem;
-    background: var(--second-bg-color);
-    padding: 3rem 2rem 4rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: .2rem solid var(--bg-color);
-    transition: .5s ease;
+  flex: 1 1 30rem;
+  background: var(--second-bg-color);
+  padding: 3rem 2rem 4rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: .2rem solid var(--bg-color);
+  transition: .5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto; /* Remueve cualquier restricción de altura */
+  min-height: 500px; /* Asegura que todas las cards tengan al menos esta altura */
+  max-height: 600px; /* Controla la altura máxima */
 }
+
+
 
 .services-container .services-box:hover {
     border-color: var(--main-color);
@@ -579,3 +587,17 @@ margin-top: 25px;
   background: #4040ff;
 }
 
+
+.services-container .services-box {
+  flex: 1 1 30rem;
+  padding: 3rem 2rem 4rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: .2rem solid var(--bg-color);
+  transition: .5s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff; /* Para que el texto se vea mejor en la imagen */
+}

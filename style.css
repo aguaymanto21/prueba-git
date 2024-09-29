@@ -558,7 +558,7 @@ span {
 
 /* Estilos para la expansión del texto en 'Sobre mí' */
 .about-content .text-container {
-  max-height: 250px; /* Ajusta este valor para controlar cuánto texto se muestra inicialmente */
+  max-height: 200px; /* Ajusta este valor para controlar cuánto texto se muestra inicialmente */
   overflow: hidden;
   transition: max-height 0.5s ease;
 }

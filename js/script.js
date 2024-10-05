@@ -1,103 +1,31 @@
-/*==================== toggle icon navbar ====================*/
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+$(document).ready(function() {
+  // Número de cards por página
+  var itemsPerPage = 3;
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
+  // Selecciona todos los elementos de card
+  var items = $('.custom-card');
+  var numItems = items.length;
 
-/*==================== scroll sections active link ====================*/
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+  // Oculta todos los items inicialmente
+  items.hide();
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+  // Inicializa la paginación
+  $('#pagination-container').pagination({
+      items: numItems,
+      itemsOnPage: itemsPerPage,
+      cssStyle: 'light-theme',
+      prevText: 'Anterior',
+      nextText: 'Siguiente',
+      onPageClick: function(pageNumber) {
+          // Calcula los índices inicial y final de los items a mostrar
+          var showFrom = (pageNumber - 1) * itemsPerPage;
+          var showTo = showFrom + itemsPerPage;
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
-        }
-    });
+          // Oculta todos los items y muestra solo los correspondientes a la página actual
+          items.hide().slice(showFrom, showTo).show();
+      }
+  });
 
-    /*==================== sticky navbar ====================*/
-    let header = document.querySelector('header');
-
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    /*==================== remove toggle icon and navbar when click navbar link (scroll) ====================*/
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
-};
-
-/*==================== scroll reveal ====================*/
-ScrollReveal({
-    // reset: true,
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
-
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
-
-/*==================== typed js ====================*/
-const typed = new Typed('.multiple-text', {
-    strings: ['Ingeniero Mecatrónico', 'Instrumentación y Automatización', 'Mantenimiento mecánico'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-});
-
-/*==================== funcionalidad 'Leer más' ====================*/
-document.addEventListener("DOMContentLoaded", () => {
-    // Selecciona el botón y el contenedor de texto específicos de la sección 'Sobre mí'
-    const readMoreBtn = document.querySelector('.about-content .expand-btn');
-    const textContainer = document.querySelector('.about-content .text-container');
-
-    // Verifica que los elementos existen
-    if (readMoreBtn && textContainer) {
-        readMoreBtn.addEventListener("click", function () {
-            // Alterna la clase 'expanded' en el contenedor de texto
-            textContainer.classList.toggle("expanded");
-
-            // Cambia el texto del botón según el estado
-            if (textContainer.classList.contains("expanded")) {
-                readMoreBtn.textContent = "Leer menos";
-            } else {
-                readMoreBtn.textContent = "Leer más";
-            }
-        });
-    }
-
-    /*==================== funcionalidad 'Leer más' en otras secciones (opcional) ====================*/
-    // Si tienes más botones 'Leer más' en otras secciones, puedes utilizar el siguiente código:
-
-    const buttons = document.querySelectorAll(".services-box .expand-btn");
-
-    buttons.forEach((button) => {
-        button.addEventListener("click", function () {
-            // Selecciona el contenedor de texto en el mismo 'services-box'
-            const textContainer = button.previousElementSibling;
-
-            // Alterna la clase 'expanded' en el contenedor de texto
-            textContainer.classList.toggle("expanded");
-
-            // Cambia el texto del botón según el estado
-            if (textContainer.classList.contains("expanded")) {
-                button.textContent = "Leer menos";
-            } else {
-                button.textContent = "Leer más";
-            }
-        });
-    });
+  // Muestra los primeros items al cargar la página
+  items.slice(0, itemsPerPage).show();
 });

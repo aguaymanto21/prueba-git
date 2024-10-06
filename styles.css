@@ -1,10 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
-  background-color: #f4f4f4;
+  background-color: #3f3fa6;
 }
 h1 {
-  color: #333;
+  color: #ffffff;
+  font-size: 3rem;
+  text-align: center;
 }
 #fetch-button {
   padding: 10px 20px;
@@ -14,6 +16,8 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 2rem;
+
 }
 #fetch-button:hover {
   background-color: #0056b3;
@@ -22,10 +26,16 @@ h1 {
   margin-top: 20px;
   padding: 10px;
   background-color: white;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   border-radius: 5px;
   white-space: pre-wrap; /* Para mostrar el JSON de forma legible */
 }
 .error {
   color: red;
+}
+
+.botton-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }

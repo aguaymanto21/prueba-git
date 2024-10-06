@@ -1,89 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Metadatos -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Education with Pagination</title>
-
-  <!-- Estilos CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- simplePagination CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/simplePagination.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumir una API</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Sección de Educación -->
-  <section id="custom-skills-section">
-    <h2 class="custom-heading">My <span>education</span></h2>
-    <div class="custom-main">
-      <!-- Tarjeta 1 -->
-      <div class="custom-skill-item">
-        <div class="custom-card">
-          <img src="./images/C2.JPG" alt="Imagen 1">
-        </div>
-        <div class="texto-descripcion">
-          <p>Projects on Ruby on Rails and React responsive interfaces SCSS, Bootstrap. Managed PostgreSQL with Active Record, authentication using Devise and Pundit. Integrated APIs, AJAX, Hotwire, Geocoding, Chatbot AI integration and deployed applications via Git and Heroku.</p>
-        </div>
-      </div>
-      <!-- Tarjeta 2 -->
-      <div class="custom-skill-item">
-        <div class="custom-card">
-          <img src="./images/C3.JPG" alt="Imagen 2">
-        </div>
-        <div class="texto-descripcion">
-          <p>Training in JavaScript, Python, SQL, Postman, and Flask. Developed dynamic web applications, managed and queried databases, and integrated APIs using Postman. Built backend services with Flask.</p>
-        </div>
-      </div>
-      <!-- Tarjeta 3 -->
-      <div class="custom-skill-item">
-        <div class="custom-card">
-          <img src="./images/C5.JPG" alt="Imagen 3">
-        </div>
-        <div class="texto-descripcion">
-          <p>Proficient in Python for deep and machine learning projects, utilizing Jupyter, OpenCV, NumPy, Pandas, and various Python libraries for data analysis and model development.</p>
-        </div>
-      </div>
-      <!-- Tarjeta 4 -->
-      <div class="custom-skill-item">
-        <div class="custom-card">
-          <img src="./images/C4.JPG" alt="Imagen 4">
-        </div>
-        <div class="texto-descripcion">
-          <p>Completed advanced courses in data structures and algorithms, gaining a strong foundation in computational theory and practical problem-solving techniques.</p>
-        </div>
-      </div>
-      <!-- Tarjeta 5 -->
-      <div class="custom-skill-item">
-        <div class="custom-card">
-          <img src="./images/C6.JPG" alt="Imagen 5">
-        </div>
-        <div class="texto-descripcion">
-          <p>Participated in collaborative software development projects, enhancing skills in team communication, version control with Git, and agile methodologies.</p>
-        </div>
-      </div>
-      <!-- Tarjeta 6 -->
-      <div class="custom-skill-item">
-        <div class="custom-card">
-          <img src="./images/C7.JPG" alt="Imagen 6">
-        </div>
-        <div class="texto-descripcion">
-          <p>Engaged in cybersecurity workshops, learning about network security, encryption, and best practices for protecting digital information.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Contenedor de Paginación -->
-    <div id="pagination-container" class="pagination"></div>
-  </section>
+    <h1>Consumir una API</h1>
+    <button id="fetch-button">Obtener Datos</button>
+    <div id="data"></div>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 
-  <!-- simplePagination.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script>
-
-  <!-- JavaScript Personalizado -->
-  <script src="/js/script.js"></script>
 </body>
 </html>

@@ -1,28 +1,30 @@
-// Agrega un evento al botón para obtener datos cuando se hace clic
 document.getElementById('fetch-button').addEventListener('click', function() {
-  // Realiza una solicitud GET a la API de Pokémon para obtener datos de Bulbasaur
-  fetch('https://pokeapi.co/api/v2/pokemon/1/') // Cambia el número para obtener otros Pokémon
+  const pokemonInput = document.getElementById('pokemon-input').value.trim(); // Obtiene el valor ingresado por el usuario
+
+  if (!pokemonInput) {
+      alert('Por favor, ingresa un nombre o ID de Pokémon.'); // Mensaje de advertencia si el campo está vacío
+      return;
+  }
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonInput}/`) // Usar el valor ingresado en la URL
       .then(response => {
-          // Verifica si la respuesta es válida (código 200)
           if (!response.ok) {
-              throw new Error('Error en la red'); // Si no es válido, lanza un error
+              throw new Error('Pokémon no encontrado'); // Maneja el error si el Pokémon no se encuentra
           }
-          return response.json(); // Convierte la respuesta a formato JSON
+          return response.json();
       })
       .then(data => {
-          // Una vez que tenemos los datos, mostramos la información
           const dataDiv = document.getElementById('data');
           const pokemonInfo = `
-              <h2>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2> <!-- Nombre del Pokémon -->
-              <p>Altura: ${data.height}</p> <!-- Altura del Pokémon -->
-              <p>Peso: ${data.weight}</p> <!-- Peso del Pokémon -->
-              <p>Tipos: ${data.types.map(type => type.type.name).join(', ')}</p> <!-- Tipos del Pokémon -->
+              <h2>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h2>
+              <p>Altura: ${data.height}</p>
+              <p>Peso: ${data.weight}</p>
+              <p>Tipos: ${data.types.map(type => type.type.name).join(', ')}</p>
           `;
-          dataDiv.innerHTML = pokemonInfo; // Inserta la información en el div de datos
+          dataDiv.innerHTML = pokemonInfo; // Muestra la información del Pokémon
       })
       .catch(error => {
-          // Si hay un error en la solicitud, muestra un mensaje de error
           const dataDiv = document.getElementById('data');
-          dataDiv.innerHTML = `<p class="error">Hubo un problema: ${error.message}</p>`;
+          dataDiv.innerHTML = `<p class="error">Hubo un problema: ${error.message}</p>`; // Muestra un mensaje de error
       });
 });

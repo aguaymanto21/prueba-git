@@ -39,3 +39,17 @@ h1 {
   justify-content: center;
   margin-bottom: 2rem;
 }
+
+.input-container {
+  display: flex; /* Usa Flexbox para alinear el campo de entrada y el botón */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  margin-top: 20px; /* Espacio arriba del contenedor */
+}
+
+#pokemon-input {
+  padding: 10px; /* Espaciado interno del campo de entrada */
+  font-size: 1.5rem; /* Tamaño de la fuente */
+  border: 1px solid #ccc; /* Borde del campo de entrada */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-right: 10px; /* Espacio entre el campo de entrada y el botón */
+}

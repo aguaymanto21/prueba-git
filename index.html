@@ -15,7 +15,15 @@
         <input type="text" id="pokemon-input" placeholder="Ingresa el nombre o ID del Pokémon" />
         <button id="fetch-button">Obtener Datos</button>
     </div>
-    <div id="data"></div>
+
+    <!-- Contenedor padre para las tarjetas -->
+    <div class="cards">
+        <div class="card">
+            <h1 id="pokemon-name">Pokémon:</h1>
+            <img id="pokemon-image" src="" alt="Imagen del Pokémon" style="display: none; width: 150px; height: 150px;">
+            <p id="pokemon-type">Tipo:</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 

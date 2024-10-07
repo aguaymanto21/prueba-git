@@ -1,55 +1,128 @@
+/* Estilos generales para el cuerpo */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
   background-color: #3f3fa6;
+  color: #ffffff; /* Asegura que el texto general sea blanco */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* Estilos para el título principal */
 h1 {
   color: #ffffff;
   font-size: 3rem;
   text-align: center;
 }
+
+/* Estilos para el botón de fetch */
 #fetch-button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 2rem; /* Asegúrate de mantener una sola propiedad font-size */
   background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 2rem;
-
+  margin-left: 10px;
 }
+
 #fetch-button:hover {
   background-color: #0056b3;
 }
+
+/* Contenedor de datos */
 #data {
   margin-top: 20px;
   padding: 10px;
   background-color: white;
+  color: #000000; /* Texto negro para contraste */
   border: 1px solid #000000;
   border-radius: 5px;
   white-space: pre-wrap; /* Para mostrar el JSON de forma legible */
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
 }
+
+/* Estilos para mensajes de error */
 .error {
   color: red;
 }
 
-.botton-container{
+/* Contenedor de botones (corrige el typo si es necesario) */
+.button-container { /* Corregido de 'botton-container' */
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
+/* Contenedor de entrada */
 .input-container {
   display: flex; /* Usa Flexbox para alinear el campo de entrada y el botón */
   justify-content: center; /* Centra el contenido horizontalmente */
   margin-top: 20px; /* Espacio arriba del contenedor */
 }
 
+/* Campo de entrada para Pokémon */
 #pokemon-input {
   padding: 10px; /* Espaciado interno del campo de entrada */
   font-size: 1.5rem; /* Tamaño de la fuente */
   border: 1px solid #ccc; /* Borde del campo de entrada */
   border-radius: 5px; /* Bordes redondeados */
   margin-right: 10px; /* Espacio entre el campo de entrada y el botón */
+}
+
+/* Contenedor padre para las tarjetas */
+.cards {
+  display: flex; /* Activa Flexbox */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples filas si es necesario */
+  margin-top: 3rem;
+}
+
+/* Estilos para la tarjeta */
+.card {
+  background-color: #007BFF;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: auto; /* Define un ancho fijo o ajustable según tus necesidades */
+  margin: 10px; /* Espacio entre tarjetas */
+  height: 250px;
+  overflow: hidden;
+  color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la imagen dentro de la tarjeta */
+.card img {
+    margin-top: 10px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    transition: transform 0.3s; /* Suaviza la transformación al pasar el ratón */
+}
+
+.card img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el ratón */
+}
+
+/* Estilos para el h1 dentro de .card */
+.card h1 {
+  color: #ffffff; /* Contrasta con el fondo azul */
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el párrafo dentro de .card */
+.card p {
+  font-size: 1.2em;
 }

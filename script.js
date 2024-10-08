@@ -1,182 +1,8 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', function() {
-  const fetchButton = document.getElementById('fetch-button');
-  const pokemonInput = document.getElementById('pokemon-input');
-  const pokemonNameHeader = document.getElementById('pokemon-name');
-  const pokemonImage = document.getElementById('pokemon-image');
-  const pokemonType = document.getElementById('pokemon-type');
-  const pokemonAbilities = document.getElementById('pokemon-abilities');
-  const pokemonHeight = document.getElementById('pokemon-height');
-  const pokemonWeight = document.getElementById('pokemon-weight');
-  const statsList = document.getElementById('stats-list');
+  const cardsContainer = document.getElementById('cards-container');
   const loader = document.getElementById('loader');
-  const statsChart = document.getElementById('stats-chart');
-
-  let chart; // Variable para almacenar el gráfico de Chart.js
-
-  fetchButton.addEventListener('click', function() {
-      const pokemonName = pokemonInput.value.trim().toLowerCase();
-
-      if (pokemonName === "") {
-          alert("Por favor, ingresa el nombre o ID del Pokémon.");
-          return;
-      }
-
-      // Actualiza el <h1> con el nombre ingresado (capitaliza la primera letra)
-      pokemonNameHeader.textContent = `Pokémon: ${capitalizeFirstLetter(pokemonName)}`;
-
-      // Limpia el contenido previo
-      pokemonImage.style.display = 'none';
-      pokemonImage.src = '';
-      pokemonType.innerHTML = "<strong>Tipo:</strong> ";
-      pokemonAbilities.innerHTML = "<strong>Habilidades:</strong> ";
-      pokemonHeight.innerHTML = "<strong>Altura:</strong> ";
-      pokemonWeight.innerHTML = "<strong>Peso:</strong> ";
-      statsList.innerHTML = ""; // Limpia la lista de estadísticas
-
-      // Oculta el gráfico previo si existe
-      if (chart) {
-          chart.destroy();
-          statsChart.style.display = 'none';
-      }
-
-      // Muestra el loader
-      loader.style.display = 'block';
-
-      // Fetch de la PokéAPI
-      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Pokémon no encontrado');
-              }
-              return response.json();
-          })
-          .then(data => {
-              // Actualiza la imagen del Pokémon
-              if (data.sprites && data.sprites.other['official-artwork'].front_default) {
-                  pokemonImage.src = data.sprites.other['official-artwork'].front_default;
-                  pokemonImage.style.display = 'block'; // Muestra la imagen
-                  pokemonImage.alt = `Imagen de ${capitalizeFirstLetter(data.name)}`;
-              } else {
-                  // Si no hay imagen oficial, usa la imagen por defecto
-                  if (data.sprites && data.sprites.front_default) {
-                      pokemonImage.src = data.sprites.front_default;
-                      pokemonImage.style.display = 'block';
-                      pokemonImage.alt = `Imagen de ${capitalizeFirstLetter(data.name)}`;
-                  } else {
-                      pokemonImage.style.display = 'none'; // Oculta la imagen si no existe
-                  }
-              }
-
-              // Actualiza el tipo del Pokémon
-              const types = data.types.map(typeInfo => capitalizeFirstLetter(typeInfo.type.name)).join(', ');
-              pokemonType.innerHTML = `<strong>Tipo:</strong> ${types}`;
-
-              // Actualiza las habilidades del Pokémon
-              const abilities = data.abilities.map(abilityInfo => {
-                  const abilityName = capitalizeFirstLetter(abilityInfo.ability.name);
-                  return abilityInfo.is_hidden ? `${abilityName} (Oculta)` : abilityName;
-              }).join(', ');
-              pokemonAbilities.innerHTML = `<strong>Habilidades:</strong> ${abilities}`;
-
-              // Actualiza la altura y el peso del Pokémon
-              const heightInMeters = data.height / 10; // La API devuelve la altura en decímetros
-              const weightInKg = data.weight / 10; // La API devuelve el peso en hectogramos
-              const heightInFeetInches = metersToFeetInches(heightInMeters);
-              const weightInLbs = kgToLbs(weightInKg);
-              pokemonHeight.innerHTML = `<strong>Altura:</strong> ${heightInMeters} m (${heightInFeetInches})`;
-              pokemonWeight.innerHTML = `<strong>Peso:</strong> ${weightInKg} kg (${weightInLbs})`;
-
-              // Actualiza las estadísticas del Pokémon
-              const stats = data.stats.map(statInfo => ({
-                  name: capitalizeFirstLetter(statInfo.stat.name),
-                  value: statInfo.base_stat
-              }));
-
-              stats.forEach(stat => {
-                  const statItem = document.createElement('li');
-                  statItem.textContent = `${stat.name}: ${stat.value}`;
-                  statsList.appendChild(statItem);
-              });
-
-              // Crear y mostrar el gráfico de estadísticas usando Chart.js
-              const labels = stats.map(stat => stat.name);
-              const dataValues = stats.map(stat => stat.value);
-
-              chart = new Chart(statsChart, {
-                  type: 'radar',
-                  data: {
-                      labels: labels,
-                      datasets: [{
-                          label: `${capitalizeFirstLetter(data.name)} Estadísticas`,
-                          data: dataValues,
-                          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                          borderColor: 'rgba(255, 99, 132, 1)',
-                          borderWidth: 2,
-                          pointBackgroundColor: 'rgba(255, 99, 132, 1)'
-                      }]
-                  },
-                  options: {
-                      scales: {
-                          r: {
-                              beginAtZero: true,
-                              ticks: {
-                                  stepSize: 20
-                              },
-                              pointLabels: {
-                                  color: '#ffffff',
-                                  font: {
-                                      size: 14
-                                  }
-                              },
-                              angleLines: {
-                                  color: 'rgba(255, 255, 255, 0.2)'
-                              },
-                              grid: {
-                                  color: 'rgba(255, 255, 255, 0.1)'
-                              }
-                          }
-                      },
-                      plugins: {
-                          legend: {
-                              display: true,
-                              labels: {
-                                  color: '#ffffff'
-                              }
-                          }
-                      }
-                  }
-              });
-
-              statsChart.style.display = 'block'; // Muestra el gráfico
-
-              // Oculta el loader
-              loader.style.display = 'none';
-          })
-          .catch(error => {
-              console.error('Error:', error);
-              alert("Pokémon no encontrado. Por favor, verifica el nombre o ID.");
-              // Opcional: Limpiar la tarjeta si hay un error
-              pokemonNameHeader.textContent = "Pokémon:";
-              pokemonImage.style.display = 'none';
-              pokemonType.innerHTML = "<strong>Tipo:</strong> ";
-              pokemonAbilities.innerHTML = "<strong>Habilidades:</strong> ";
-              pokemonHeight.innerHTML = "<strong>Altura:</strong> ";
-              pokemonWeight.innerHTML = "<strong>Peso:</strong> ";
-              statsList.innerHTML = "";
-              // Oculta el gráfico y el loader
-              statsChart.style.display = 'none';
-              loader.style.display = 'none';
-          });
-  });
-
-  // Permitir buscar al presionar Enter
-  pokemonInput.addEventListener('keyup', function(event) {
-      if (event.key === 'Enter') {
-          fetchButton.click();
-      }
-  });
 
   // Función para capitalizar la primera letra
   function capitalizeFirstLetter(string) {
@@ -195,4 +21,167 @@ document.addEventListener('DOMContentLoaded', function() {
   function kgToLbs(kg) {
       return `${(kg * 2.20462).toFixed(1)} lbs`;
   }
+
+  // Función para crear una tarjeta de Pokémon
+  function createPokemonCard(pokemon) {
+      // Crear elementos de la tarjeta
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const nameHeader = document.createElement('h1');
+      nameHeader.textContent = `Hola, soy el Pokémon: ${capitalizeFirstLetter(pokemon.name)}`;
+      card.appendChild(nameHeader);
+
+      const image = document.createElement('img');
+      image.src = pokemon.image;
+      image.alt = `Imagen de ${capitalizeFirstLetter(pokemon.name)}`;
+      card.appendChild(image);
+
+      const typePara = document.createElement('p');
+      typePara.innerHTML = `<strong>Tipo:</strong> ${pokemon.types.join(', ')}`;
+      card.appendChild(typePara);
+
+      const abilitiesPara = document.createElement('p');
+      abilitiesPara.innerHTML = `<strong>Habilidades:</strong> ${pokemon.abilities.join(', ')}`;
+      card.appendChild(abilitiesPara);
+
+      const heightPara = document.createElement('p');
+      heightPara.innerHTML = `<strong>Altura:</strong> ${pokemon.height} m (${pokemon.heightImperial})`;
+      card.appendChild(heightPara);
+
+      const weightPara = document.createElement('p');
+      weightPara.innerHTML = `<strong>Peso:</strong> ${pokemon.weight} kg (${pokemon.weightImperial})`;
+      card.appendChild(weightPara);
+
+      const statsDiv = document.createElement('div');
+      statsDiv.id = 'pokemon-stats';
+      statsDiv.innerHTML = `<strong>Estadísticas:</strong>`;
+      const statsList = document.createElement('ul');
+      statsList.classList.add('stats-list');
+
+      // Agregar estadísticas a la lista
+      for (let stat in pokemon.stats) {
+          const statItem = document.createElement('li');
+          statItem.textContent = `${stat}: ${pokemon.stats[stat]}`;
+          statsList.appendChild(statItem);
+      }
+
+      statsDiv.appendChild(statsList);
+      card.appendChild(statsDiv);
+
+      // Opcional: Crear un gráfico radar de estadísticas
+      const statsChart = document.createElement('canvas');
+      statsChart.classList.add('stats-chart');
+      statsChart.style.display = 'none'; // Ocultar inicialmente
+      card.appendChild(statsChart);
+
+      // Agregar la tarjeta al contenedor
+      cardsContainer.appendChild(card);
+
+      // Crear el gráfico radar usando Chart.js
+      const labels = Object.keys(pokemon.stats);
+      const dataValues = Object.values(pokemon.stats);
+
+      statsChart.style.display = 'block'; // Mostrar el gráfico
+
+      new Chart(statsChart, {
+          type: 'radar',
+          data: {
+              labels: labels,
+              datasets: [{
+                  label: `${capitalizeFirstLetter(pokemon.name)} Estadísticas`,
+                  data: dataValues,
+                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  borderWidth: 1,
+                  pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+              }]
+          },
+          options: {
+              scales: {
+                  r: {
+                      beginAtZero: true,
+                      suggestedMin: 0,
+                      suggestedMax: 150
+                  }
+              }
+          }
+      });
+  }
+
+  // Función para obtener los primeros 6 Pokémon
+  async function getFirstSixPokemon() {
+      try {
+          // Mostrar el loader
+          loader.style.display = 'block';
+
+          // Obtener la lista de los primeros 6 Pokémon
+          const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=6');
+          if (!response.ok) {
+              throw new Error('Error al obtener la lista de Pokémon');
+          }
+          const data = await response.json();
+
+          // Iterar sobre cada Pokémon y obtener sus detalles
+          const pokemonPromises = data.results.map(async (pokemon) => {
+              const res = await fetch(pokemon.url);
+              if (!res.ok) {
+                  throw new Error(`Error al obtener los datos de ${pokemon.name}`);
+              }
+              const details = await res.json();
+
+              // Obtener tipos
+              const types = details.types.map(typeInfo => capitalizeFirstLetter(typeInfo.type.name));
+
+              // Obtener habilidades
+              const abilities = details.abilities.map(abilityInfo => capitalizeFirstLetter(abilityInfo.ability.name));
+
+              // Obtener altura y peso
+              const height = details.height / 10; // Decímetros a metros
+              const heightImperial = metersToFeetInches(height);
+              const weight = details.weight / 10; // Hectogramos a kilogramos
+              const weightImperial = kgToLbs(weight);
+
+              // Obtener estadísticas
+              const stats = {};
+              details.stats.forEach(statInfo => {
+                  stats[capitalizeFirstLetter(statInfo.stat.name)] = statInfo.base_stat;
+              });
+
+              // Obtener imagen
+              const image = details.sprites.other['official-artwork'].front_default || details.sprites.front_default || '';
+
+              return {
+                  name: pokemon.name,
+                  image: image,
+                  types: types,
+                  abilities: abilities,
+                  height: height,
+                  heightImperial: heightImperial,
+                  weight: weight,
+                  weightImperial: weightImperial,
+                  stats: stats
+              };
+          });
+
+          // Esperar a que todas las promesas se resuelvan
+          const allPokemon = await Promise.all(pokemonPromises);
+
+          // Crear una tarjeta para cada Pokémon
+          allPokemon.forEach(pokemon => {
+              createPokemonCard(pokemon);
+          });
+
+          // Ocultar el loader
+          loader.style.display = 'none';
+
+      } catch (error) {
+          console.error('Error:', error);
+          alert('Hubo un problema al cargar los Pokémon. Inténtalo nuevamente más tarde.');
+          loader.style.display = 'none';
+      }
+  }
+
+  // Llamar a la función para obtener y mostrar los Pokémon al cargar la página
+  getFirstSixPokemon();
 });

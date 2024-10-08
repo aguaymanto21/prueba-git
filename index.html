@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consumir una API</title>
+    <title>Buscador de Pokémon</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Incluye Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <h1>Consumir una API</h1>
+    <h1>Buscador de Pokémon</h1>
 
     <!-- Campo de entrada para que el usuario ingrese el nombre o ID del Pokémon -->
     <div class="input-container">
@@ -20,10 +22,24 @@
     <div class="cards">
         <div class="card">
             <h1 id="pokemon-name">Pokémon:</h1>
-            <img id="pokemon-image" src="" alt="Imagen del Pokémon" style="display: none; width: 150px; height: 150px;">
-            <p id="pokemon-type">Tipo:</p>
+            <img id="pokemon-image" src="" alt="Imagen del Pokémon" style="display: none;">
+            <p id="pokemon-type"><strong>Tipo:</strong> </p>
+            <p id="pokemon-abilities"><strong>Habilidades:</strong> </p>
+            <p id="pokemon-height"><strong>Altura:</strong> </p>
+            <p id="pokemon-weight"><strong>Peso:</strong> </p>
+            <div id="pokemon-stats">
+                <strong>Estadísticas:</strong>
+                <ul id="stats-list">
+                    <!-- Estadísticas se insertarán aquí -->
+                </ul>
+            </div>
+            <!-- Canvas para el gráfico de estadísticas -->
+            <canvas id="stats-chart" width="300" height="300" style="display: none;"></canvas>
         </div>
     </div>
+
+    <!-- Elemento opcional para la animación de carga -->
+    <div id="loader" style="display: none;">Cargando...</div>
 
     <script src="script.js"></script>
 

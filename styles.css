@@ -1,9 +1,11 @@
+/* styles.css */
+
 /* Estilos generales para el cuerpo */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 20px;
-  background-color: #3f3fa6;
-  color: #ffffff; /* Asegura que el texto general sea blanco */
+  background: linear-gradient(135deg, #3f3fa6, #1e1e2d);
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,115 +16,156 @@ h1 {
   color: #ffffff;
   font-size: 3rem;
   text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor de entrada */
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Campo de entrada para Pokémon */
+#pokemon-input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  width: 250px;
+  outline: none;
 }
 
 /* Estilos para el botón de fetch */
 #fetch-button {
   padding: 10px 20px;
-  font-size: 2rem; /* Asegúrate de mantener una sola propiedad font-size */
-  background-color: #007BFF;
-  color: white;
+  font-size: 1.2rem;
+  background-color: #ffcb05; /* Color amarillo típico de Pokémon */
+  color: #3f3fa6; /* Contraste con el fondo */
   border: none;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
-  margin-left: 10px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 #fetch-button:hover {
-  background-color: #0056b3;
-}
-
-/* Contenedor de datos */
-#data {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: white;
-  color: #000000; /* Texto negro para contraste */
-  border: 1px solid #000000;
-  border-radius: 5px;
-  white-space: pre-wrap; /* Para mostrar el JSON de forma legible */
-  width: 80%;
-  max-width: 600px;
-  text-align: left;
-}
-
-/* Estilos para mensajes de error */
-.error {
-  color: red;
-}
-
-/* Contenedor de botones (corrige el typo si es necesario) */
-.button-container { /* Corregido de 'botton-container' */
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-/* Contenedor de entrada */
-.input-container {
-  display: flex; /* Usa Flexbox para alinear el campo de entrada y el botón */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  margin-top: 20px; /* Espacio arriba del contenedor */
-}
-
-/* Campo de entrada para Pokémon */
-#pokemon-input {
-  padding: 10px; /* Espaciado interno del campo de entrada */
-  font-size: 1.5rem; /* Tamaño de la fuente */
-  border: 1px solid #ccc; /* Borde del campo de entrada */
-  border-radius: 5px; /* Bordes redondeados */
-  margin-right: 10px; /* Espacio entre el campo de entrada y el botón */
+  background-color: #e6b800;
+  transform: scale(1.05);
 }
 
 /* Contenedor padre para las tarjetas */
 .cards {
-  display: flex; /* Activa Flexbox */
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples filas si es necesario */
+  flex-wrap: wrap;
   margin-top: 3rem;
 }
 
 /* Estilos para la tarjeta */
 .card {
-  background-color: #007BFF;
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
   text-align: center;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: auto; /* Define un ancho fijo o ajustable según tus necesidades */
-  margin: 10px; /* Espacio entre tarjetas */
-  height: 250px;
-  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 350px;
+  margin: 10px;
   color: #ffffff;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Efecto al pasar el ratón sobre la tarjeta */
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilos para la imagen dentro de la tarjeta */
 .card img {
     margin-top: 10px;
     border-radius: 50%; /* Hace que la imagen sea circular */
-    transition: transform 0.3s; /* Suaviza la transformación al pasar el ratón */
+    transition: transform 0.3s;
+    width: 150px;
+    height: 150px;
+    object-fit: contain; /* Asegura que la imagen se ajuste bien */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo detrás de la imagen */
 }
 
+/* Efecto al pasar el ratón sobre la imagen */
 .card img:hover {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el ratón */
+    transform: scale(1.1);
 }
 
-/* Estilos para el h1 dentro de .card */
-.card h1 {
-  color: #ffffff; /* Contrasta con el fondo azul */
-  font-size: 2em;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Estilos para el párrafo dentro de .card */
+/* Estilos para los párrafos dentro de la tarjeta */
 .card p {
-  font-size: 1.2em;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+/* Estilos para la sección de estadísticas */
+#pokemon-stats {
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Lista de estadísticas */
+#stats-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Elementos de la lista de estadísticas */
+#stats-list li {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Estilos para el loader */
+#loader {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Estilos para el canvas del gráfico */
+#stats-chart {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #pokemon-input {
+        width: 200px;
+        font-size: 1rem;
+    }
+
+    #fetch-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    #stats-list li {
+        font-size: 0.9rem;
+    }
+
+    #stats-chart {
+        width: 100%;
+        height: auto;
+    }
 }
